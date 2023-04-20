@@ -8,6 +8,7 @@ object IronSourceConsts {
     const val LOAD_INTERSTITIAL = "loadInterstitial"
     const val SHOW_INTERSTITIAL = "showInterstitial"
     const val IS_INTERSTITIAL_READY = "isInterstitialReady"
+    const val IS_INTERSTITIAL_CAPPED = "isInterstitialPlacementCapped"
     const val IS_REWARDED_VIDEO_AVAILABLE = "isRewardedVideoAvailable"
     const val IS_OFFERWALL_AVAILABLE = "isOfferwallAvailable"
     const val SHOW_OFFERWALL = "showOfferwall"

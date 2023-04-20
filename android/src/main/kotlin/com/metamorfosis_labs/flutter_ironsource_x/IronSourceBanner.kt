@@ -8,7 +8,7 @@ import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
 import java.util.*
 
-class IronSourceBanner internal constructor(val mActivity: Activity, private val messenger: BinaryMessenger) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
+class IronSourceBanner internal constructor(private val mActivity: Activity, private val messenger: BinaryMessenger) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
     override fun create(context: Context?, id: Int, args: Any?): PlatformView {
         return IronSourceBannerView(context, id, (args as HashMap<*, *>), messenger, mActivity)
     }

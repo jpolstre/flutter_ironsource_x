@@ -66,6 +66,12 @@ class IronSource {
     return await _channel.invokeMethod('isInterstitialReady');
   }
 
+  static Future<dynamic> isInterstitialPlacementCapped(
+      String placementName) async {
+    return await _channel.invokeMethod(
+        'isInterstitialPlacementCapped', {'placementName': placementName});
+  }
+
   static Future<dynamic> activityResumed() async {
     await _channel.invokeMethod('activityResumed');
   }

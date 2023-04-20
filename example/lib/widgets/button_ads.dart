@@ -71,6 +71,7 @@ class _ButtonAdsWidgetState extends State<ButtonAdsWidget>
   }
 
   void showInterstitial() async {
+    //&& !(await IronSource.isInterstitialPlacementCapped('placementName')
     if (await IronSource.isInterstitialReady()) {
       // showHideBanner();
       IronSource.showInterstitial();
