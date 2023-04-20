@@ -42,7 +42,7 @@ class InterstitialAd(activity: Activity, channel: MethodChannel): LevelPlayInter
     }
 
     override fun onAdShowSucceeded(p0: AdInfo?) {
-        println("onAdShowSucceeded $p0")
+//        println("onAdShowSucceeded $p0")
         mActivity.runOnUiThread {
             mChannel.invokeMethod(IronSourceConsts.ON_INTERSTITIAL_AD_SHOW_SUCCEEDED, null)
         }

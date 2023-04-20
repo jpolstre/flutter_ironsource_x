@@ -159,7 +159,7 @@ class IronSourceBannerView internal constructor(context: Context?, id: Int, args
                 }
 
                 // load ad into the created banner
-                println("placementName Banner: $placementName")
+//                println("placementName Banner: $placementName")
                 if(placementName!=null){
                     IronSource.loadBanner(it, placementName)
                 }else{
