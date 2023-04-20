@@ -96,6 +96,7 @@ class IronSourceBannerView internal constructor(context: Context?, id: Int, args
         val bannerType = args["banner_type"] as String
         val height = args["height"] as Int
         val width = args["width"] as Int
+        val placementName = args["placementName"] as String?
         Log.d("BANNER Width", width.toString())
         Log.d("BANNER Height", height.toString())
 //        val size = ISBannerSize.LARGE
@@ -158,7 +159,13 @@ class IronSourceBannerView internal constructor(context: Context?, id: Int, args
                 }
 
                 // load ad into the created banner
-                IronSource.loadBanner(it)
+                println("placementName Banner: $placementName")
+                if(placementName!=null){
+                    IronSource.loadBanner(it, placementName)
+                }else{
+                    IronSource.loadBanner(it)
+                }
+
 
             } ?: run {
                 Toast.makeText(activity, "IronSource.createBanner returned null", Toast.LENGTH_LONG).show()

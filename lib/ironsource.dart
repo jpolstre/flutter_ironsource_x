@@ -50,8 +50,9 @@ class IronSource {
     await _channel.invokeMethod('loadInterstitial');
   }
 
-  static Future<dynamic> showInterstitial() async {
-    await _channel.invokeMethod('showInterstitial');
+  static Future<dynamic> showInterstitial({String? placementName}) async {
+    await _channel
+        .invokeMethod('showInterstitial', {'placementName': placementName});
   }
 
   static Future<dynamic> showRewardedVideo() async {

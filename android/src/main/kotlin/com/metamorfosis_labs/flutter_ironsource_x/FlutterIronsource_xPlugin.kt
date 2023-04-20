@@ -55,7 +55,14 @@ class FlutterIronsource_xPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
       IronSource.loadInterstitial()
       result.success(null)
     } else if (call.method == IronSourceConsts.SHOW_INTERSTITIAL) {
-      IronSource.showInterstitial()
+      val placementName =  call.argument<String?>("placementName")
+      println("placementName interstitial $placementName")
+      if(placementName!=null){
+        IronSource.showInterstitial(placementName)
+      }else{
+        IronSource.showInterstitial()
+      }
+
       result.success(null)
     } else if (call.method == IronSourceConsts.IS_INTERSTITIAL_READY) {
       result.success(IronSource.isInterstitialReady())

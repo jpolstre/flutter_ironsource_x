@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
                           keepAlive: true,
                           listener: BannerAdListener(),
                           size: BannerSize.BANNER,
+                          placementName: "DefaultBanner",
                           // size: BannerSize.LARGE,
                           // size: BannerSize.LEADERBOARD,
                           // size: BannerSize.RECTANGLE,

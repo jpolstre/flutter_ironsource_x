@@ -37,19 +37,20 @@ class BannerSize {
 }
 
 class IronSourceBannerAd extends StatefulWidget {
-  final Key? key;
   final IronSourceBannerListener? listener;
   final bool keepAlive;
   final BannerSize size;
   final Color? backgroundColor;
+  final String? placementName;
 
-  const IronSourceBannerAd({
-    this.key,
-    this.listener,
-    this.keepAlive = false,
-    this.size = BannerSize.BANNER,
-    this.backgroundColor,
-  }) : super(key: key);
+  const IronSourceBannerAd(
+      {Key? key,
+      this.listener,
+      this.keepAlive = false,
+      this.size = BannerSize.BANNER,
+      this.backgroundColor,
+      this.placementName})
+      : super(key: key);
 
   @override
   _IronSourceBannerAdState createState() => _IronSourceBannerAdState();
@@ -58,9 +59,7 @@ class IronSourceBannerAd extends StatefulWidget {
 class _IronSourceBannerAdState extends State<IronSourceBannerAd>
     with AutomaticKeepAliveClientMixin {
   static IronSourceBannerListener? _listener;
-  static IronSourceBannerListener? getListener() {
-    return _listener!;
-  }
+  static IronSourceBannerListener? get getListener => _listener;
 
   @override
   Widget build(BuildContext context) {
@@ -80,12 +79,12 @@ class _IronSourceBannerAdState extends State<IronSourceBannerAd>
               "banner_type": widget.size.type,
               "height": widget.size.height,
               "width": widget.size.width,
+              "placementName": widget.placementName,
             },
             creationParamsCodec: const StandardMessageCodec(),
           ));
     } else {
-      return Container(
-          child: const Text("this plugin only supported for android"));
+      return const Text("this plugin only supported for android");
     }
   }
 
