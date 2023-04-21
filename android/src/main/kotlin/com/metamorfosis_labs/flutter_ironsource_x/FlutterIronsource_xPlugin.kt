@@ -43,14 +43,14 @@ class FlutterIronsource_xPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
 
   override fun onMethodCall( call: MethodCall,  result: Result) {
     if (call.method == IronSourceConsts.INIT && call.hasArgument("appKey")) {
-      call.argument<String>("")
+//      call.argument<String>("")
       initialize(
         call.argument<String>("appKey")!!,
         call.argument<Boolean>("gdprConsent")!!,
         call.argument<Boolean>("ccpaConsent")!!,
         call.argument<Boolean>("isChildDirected")!!
       )
-      result.success(null)
+      result.success(true)
     } else if (call.method == IronSourceConsts.LOAD_INTERSTITIAL) {
       IronSource.loadInterstitial()
       result.success(null)

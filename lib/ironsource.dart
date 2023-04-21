@@ -22,7 +22,7 @@ class IronSource {
   }) async {
     _listener = listener;
     _channel.setMethodCallHandler(_listener?._handle);
-    await _channel.invokeMethod('initialize', {
+    return _channel.invokeMethod('initialize', {
       'appKey': appKey,
       'gdprConsent': gdprConsent,
       'ccpaConsent': ccpaConsent,

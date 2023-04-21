@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ironsource_x/ironsource.dart';
 import 'package:flutter_ironsource_x/models.dart';
+import 'package:flutter_ironsource_x_example/providers/banner_providers.dart';
 
 import 'custom_button.dart';
 
-class ButtonAdsWidget extends StatefulWidget {
-  const ButtonAdsWidget({Key? key}) : super(key: key);
+class ButtonAdsWidgetAndInitIronSource extends StatefulWidget {
+  final BannerProvider bannerProvider;
+  const ButtonAdsWidgetAndInitIronSource(
+      {Key? key, required this.bannerProvider})
+      : super(key: key);
 
   @override
-  State<ButtonAdsWidget> createState() => _ButtonAdsWidgetState();
+  State<ButtonAdsWidgetAndInitIronSource> createState() =>
+      _ButtonAdsWidgetAndInitIronSourceState();
 }
 
-class _ButtonAdsWidgetState extends State<ButtonAdsWidget>
+class _ButtonAdsWidgetAndInitIronSourceState
+    extends State<ButtonAdsWidgetAndInitIronSource>
     with IronSourceListener, WidgetsBindingObserver {
   final String appKey =
       "85460dcd"; // "85460dcd"; // change this with your appKey
@@ -22,6 +28,7 @@ class _ButtonAdsWidgetState extends State<ButtonAdsWidget>
       interstitialReady = false;
   @override
   void initState() {
+    //esto es para que escuche didChangeAppLifecycleState;
     WidgetsBinding.instance.addObserver(this);
     Future.delayed(Duration.zero, () async {
       await init();
@@ -53,17 +60,22 @@ class _ButtonAdsWidgetState extends State<ButtonAdsWidget>
     var userId = await IronSource.getAdvertiserId();
     await IronSource.validateIntegration();
     await IronSource.setUserId(userId);
-    await IronSource.initialize(
+    final res = await IronSource.initialize(
       appKey: appKey,
       listener: this,
       gdprConsent: true,
       ccpaConsent: true,
+      isChildDirected: false,
     );
+    print('IronSource.initialize--->$res');
 
     interstitialReady = await IronSource.isInterstitialReady();
     rewardeVideoAvailable = await IronSource.isRewardedVideoAvailable();
     offerwallAvailable = await IronSource.isOfferwallAvailable();
-    setState(() {});
+
+    setState(() {
+      widget.bannerProvider.isBannerShow = true;
+    });
   }
 
   void loadInterstitial() async {
