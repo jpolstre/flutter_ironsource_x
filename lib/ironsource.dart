@@ -160,87 +160,45 @@ abstract class IronSourceListener {
     }
   }
 
-  void onGetOfferwallCreditsFailed(IronSourceError error) {
-    // TODO: implement onGetOfferwallCreditsFailed
-  }
+  void onGetOfferwallCreditsFailed(IronSourceError error) {}
 
-  void onInterstitialAdClicked() {
-    // TODO: implement onInterstitialAdClicked
-  }
+  void onInterstitialAdClicked() {}
 
-  void onInterstitialAdClosed() {
-    // TODO: implement onInterstitialAdClosed
-  }
+  void onInterstitialAdClosed() {}
 
-  void onInterstitialAdLoadFailed(IronSourceError error) {
-    // TODO: implement onInterstitialAdLoadFailed
-  }
+  void onInterstitialAdLoadFailed(IronSourceError error) {}
 
-  void onInterstitialAdOpened() {
-    // TODO: implement onInterstitialAdOpened
-  }
+  void onInterstitialAdOpened() {}
 
-  void onInterstitialAdReady() {
-    // TODO: implement onInterstitialAdReady
-  }
+  void onInterstitialAdReady() {}
 
-  void onInterstitialAdShowFailed(IronSourceError error) {
-    // TODO: implement onInterstitialAdShowFailed
-  }
+  void onInterstitialAdShowFailed(IronSourceError error) {}
 
-  void onInterstitialAdShowSucceeded() {
-    // TODO: implement onInterstitialAdShowSucceeded
-  }
+  void onInterstitialAdShowSucceeded() {}
 
-  void onOfferwallAdCredited(OfferwallCredit reward) {
-    // TODO: implement onOfferwallAdCredited
-  }
+  void onOfferwallAdCredited(OfferwallCredit reward) {}
 
-  void onOfferwallAvailable(bool available) {
-    // TODO: implement onOfferwallAvailable
-  }
+  void onOfferwallAvailable(bool available) {}
 
-  void onOfferwallClosed() {
-    // TODO: implement onOfferwallClosed
-  }
+  void onOfferwallClosed() {}
 
-  void onOfferwallOpened() {
-    // TODO: implement onOfferwallOpened
-  }
+  void onOfferwallOpened() {}
 
-  void onOfferwallShowFailed(IronSourceError error) {
-    // TODO: implement onOfferwallShowFailed
-  }
+  void onOfferwallShowFailed(IronSourceError error) {}
 
-  void onRewardedVideoAdClicked(Placement placement) {
-    // TODO: implement onRewardedVideoAdClicked
-  }
+  void onRewardedVideoAdClicked(Placement placement) {}
 
-  void onRewardedVideoAdClosed() {
-    // TODO: implement onRewardedVideoAdClosed
-  }
+  void onRewardedVideoAdClosed() {}
 
-  void onRewardedVideoAdEnded() {
-    // TODO: implement onRewardedVideoAdEnded
-  }
+  void onRewardedVideoAdEnded() {}
 
-  void onRewardedVideoAdOpened() {
-    // TODO: implement onRewardedVideoAdOpened
-  }
+  void onRewardedVideoAdOpened() {}
 
-  void onRewardedVideoAdRewarded(Placement placement) {
-    // TODO: implement onRewardedVideoAdRewarded
-  }
+  void onRewardedVideoAdRewarded(Placement placement) {}
 
-  void onRewardedVideoAdShowFailed(IronSourceError error) {
-    // TODO: implement onRewardedVideoAdShowFailed
-  }
+  void onRewardedVideoAdShowFailed(IronSourceError error) {}
 
-  void onRewardedVideoAdStarted() {
-    // TODO: implement onRewardedVideoAdStarted
-  }
+  void onRewardedVideoAdStarted() {}
 
-  void onRewardedVideoAvailabilityChanged(bool available) {
-    // TODO: implement onRewardedVideoAvailabilityChanged
-  }
+  void onRewardedVideoAvailabilityChanged(bool available) {}
 }

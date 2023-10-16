@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    print('reload all widgets');
+    // print('reload all widgets');
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
                     todos los BannerProvider (bannerProv en este caso) de Consumer<BannerProvider>, son widget.bannerProvider(es uno solo en otras palabras)*/
                     Consumer<BannerProvider>(
                         builder: (context, bannerProv, child) {
-                      print('reload Consumer CustomButton');
+                      // print('reload Consumer CustomButton');
                       return CustomButton(
                         label: bannerProv.isBannerShow //widget.bannerProvider
                             ? "hide banner"
@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
               /*Consumer<BannerProvider>( es igual que Obx, se recarga por las propiedades de BannerProvider (notifyListeners();)
                     todos los BannerProvider (bannerProv en este caso) de Consumer<BannerProvider>, son widget.bannerProvider(es uno solo en otras palabras)*/
               Consumer<BannerProvider>(builder: (context, bannerProv, child) {
-                print('reload Consumer Align osea Banner');
+                // print('reload Consumer Align osea Banner');
 
                 return bannerProv.isBannerShow //widget.bannerProvider
                     ? Align(
@@ -111,32 +111,32 @@ class _MyAppState extends State<MyApp> {
 class BannerAdListener extends IronSourceBannerListener {
   @override
   void onBannerAdClicked() {
-    print("onBannerAdClicked");
+    // print("onBannerAdClicked");
   }
 
   @override
   void onBannerAdLeftApplication() {
-    print("onBannerAdLeftApplication");
+    // print("onBannerAdLeftApplication");
   }
 
   @override
   void onBannerAdLoadFailed(Map<String, dynamic> error) {
-    print("onBannerAdLoadFailed");
+    // print("onBannerAdLoadFailed");
   }
 
   @override
   void onBannerAdLoaded() {
-    print("onBannerAdLoaded");
+    // print("onBannerAdLoaded");
   }
 
   @override
   void onBannerAdScreenDismissed() {
-    print("onBannerAdScreenDismisse");
+    // print("onBannerAdScreenDismisse");
   }
 
   @override
   void onBannerAdScreenPresented() {
-    print("onBannerAdScreenPresented");
+    // print("onBannerAdScreenPresented");
   }
 }
 

@@ -44,14 +44,13 @@ class _ButtonAdsWidgetAndInitIronSourceState
         IronSource.activityResumed();
         break;
       case AppLifecycleState.inactive:
-        // TODO: Handle this case.
         break;
       case AppLifecycleState.paused:
-        // TODO: Handle this case.
         IronSource.activityPaused();
         break;
       case AppLifecycleState.detached:
-        // TODO: Handle this case.
+        break;
+      case AppLifecycleState.hidden:
         break;
     }
   }
@@ -60,14 +59,15 @@ class _ButtonAdsWidgetAndInitIronSourceState
     var userId = await IronSource.getAdvertiserId();
     await IronSource.validateIntegration();
     await IronSource.setUserId(userId);
-    final res = await IronSource.initialize(
+    await IronSource.initialize(
+      // final res =
       appKey: appKey,
       listener: this,
       gdprConsent: true,
       ccpaConsent: true,
       isChildDirected: false,
     );
-    print('IronSource.initialize--->$res');
+    // print('IronSource.initialize--->$res');
 
     interstitialReady = await IronSource.isInterstitialReady();
     rewardeVideoAvailable = await IronSource.isRewardedVideoAvailable();
@@ -88,9 +88,9 @@ class _ButtonAdsWidgetAndInitIronSourceState
       // showHideBanner();
       IronSource.showInterstitial(placementName: "DefaultInterstitial");
     } else {
-      print(
-        "Interstial is not ready. use 'Ironsource.loadInterstial' before showing it",
-      );
+      // print(
+      //   "Interstial is not ready. use 'Ironsource.loadInterstial' before showing it",
+      // );
     }
   }
 
@@ -99,7 +99,7 @@ class _ButtonAdsWidgetAndInitIronSourceState
       // showHideBanner();
       IronSource.showOfferwall();
     } else {
-      print("Offerwall not available");
+      // print("Offerwall not available");
     }
   }
 
@@ -108,7 +108,7 @@ class _ButtonAdsWidgetAndInitIronSourceState
       // showHideBanner();
       IronSource.showRewardedVideo();
     } else {
-      print("RewardedVideo not available");
+      // print("RewardedVideo not available");
     }
   }
 
@@ -147,22 +147,22 @@ class _ButtonAdsWidgetAndInitIronSourceState
 
   @override
   void onInterstitialAdClicked() {
-    print("onInterstitialAdClicked");
+    // print("onInterstitialAdClicked");
   }
 
   @override
   void onInterstitialAdClosed() {
-    print("onInterstitialAdClosed");
+    // print("onInterstitialAdClosed");
   }
 
   @override
   void onInterstitialAdLoadFailed(IronSourceError error) {
-    print("onInterstitialAdLoadFailed : ${error.toString()}");
+    // print("onInterstitialAdLoadFailed : ${error.toString()}");
   }
 
   @override
   void onInterstitialAdOpened() {
-    print("onInterstitialAdOpened");
+    // print("onInterstitialAdOpened");
     setState(() {
       interstitialReady = false;
     });
@@ -170,7 +170,7 @@ class _ButtonAdsWidgetAndInitIronSourceState
 
   @override
   void onInterstitialAdReady() {
-    print("onInterstitialAdReady");
+    // print("onInterstitialAdReady");
     setState(() {
       interstitialReady = true;
     });
@@ -178,7 +178,7 @@ class _ButtonAdsWidgetAndInitIronSourceState
 
   @override
   void onInterstitialAdShowFailed(IronSourceError error) {
-    print("onInterstitialAdShowFailed : ${error.toString()}");
+    // print("onInterstitialAdShowFailed : ${error.toString()}");
     setState(() {
       interstitialReady = false;
     });
@@ -186,22 +186,22 @@ class _ButtonAdsWidgetAndInitIronSourceState
 
   @override
   void onInterstitialAdShowSucceeded() {
-    print("nInterstitialAdShowSucceeded");
+    // print("nInterstitialAdShowSucceeded");
   }
 
   @override
   void onGetOfferwallCreditsFailed(IronSourceError error) {
-    print("onGetOfferwallCreditsFailed : ${error.toString()}");
+    // print("onGetOfferwallCreditsFailed : ${error.toString()}");
   }
 
   @override
   void onOfferwallAdCredited(OfferwallCredit reward) {
-    print("onOfferwallAdCredited : $reward");
+    // print("onOfferwallAdCredited : $reward");
   }
 
   @override
   void onOfferwallAvailable(bool available) {
-    print("onOfferwallAvailable : $available");
+    // print("onOfferwallAvailable : $available");
 
     setState(() {
       offerwallAvailable = available;
@@ -210,57 +210,57 @@ class _ButtonAdsWidgetAndInitIronSourceState
 
   @override
   void onOfferwallClosed() {
-    print("onOfferwallClosed");
+    // print("onOfferwallClosed");
   }
 
   @override
   void onOfferwallOpened() {
-    print("onOfferwallOpened");
+    // print("onOfferwallOpened");
   }
 
   @override
   void onOfferwallShowFailed(IronSourceError error) {
-    print("onOfferwallShowFailed ${error.toString()}");
+    // print("onOfferwallShowFailed ${error.toString()}");
   }
 
   @override
   void onRewardedVideoAdClicked(Placement placement) {
-    print("onRewardedVideoAdClicked");
+    // print("onRewardedVideoAdClicked");
   }
 
   @override
   void onRewardedVideoAdClosed() {
-    print("onRewardedVideoAdClosed");
+    // print("onRewardedVideoAdClosed");
   }
 
   @override
   void onRewardedVideoAdEnded() {
-    print("onRewardedVideoAdEnded");
+    // print("onRewardedVideoAdEnded");
   }
 
   @override
   void onRewardedVideoAdOpened() {
-    print("onRewardedVideoAdOpened");
+    // print("onRewardedVideoAdOpened");
   }
 
   @override
   void onRewardedVideoAdRewarded(Placement placement) {
-    print("onRewardedVideoAdRewarded: ${placement.placementName}");
+    // print("onRewardedVideoAdRewarded: ${placement.placementName}");
   }
 
   @override
   void onRewardedVideoAdShowFailed(IronSourceError error) {
-    print("onRewardedVideoAdShowFailed : ${error.toString()}");
+    // print("onRewardedVideoAdShowFailed : ${error.toString()}");
   }
 
   @override
   void onRewardedVideoAdStarted() {
-    print("onRewardedVideoAdStarted");
+    // print("onRewardedVideoAdStarted");
   }
 
   @override
   void onRewardedVideoAvailabilityChanged(bool available) {
-    print("onRewardedVideoAvailabilityChanged : $available");
+    // print("onRewardedVideoAvailabilityChanged : $available");
     setState(() {
       rewardeVideoAvailable = available;
     });
